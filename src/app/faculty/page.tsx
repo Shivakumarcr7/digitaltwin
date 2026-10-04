@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from "react";
 import ChethanProfileEmbedded from "@/components/ChethanProfileEmbedded";
+import MaheshProfileEmbedded from "@/components/MaheshProfileEmbedded";
 import { facultyData, FacultyProfile } from "@/data/faculty";
 import { User, ArrowRight, ArrowLeft, X, Building2 } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
@@ -14,6 +15,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function FacultyPage() {
   const [showChethan, setShowChethan] = useState(false);
+  const [showMahesh, setShowMahesh] = useState(false);
   const [selectedFaculty, setSelectedFaculty] =
     useState<FacultyProfile | null>(null);
 
@@ -121,6 +123,11 @@ export default function FacultyPage() {
             <button onClick={() => setShowChethan(false)} className="mb-6 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-cyan-400 text-sm font-medium transition-all flex items-center gap-2 cursor-pointer backdrop-blur-md">&larr; Back to Network Map</button>
             <ChethanProfileEmbedded onClose={() => setShowChethan(false)} />
           </div>
+        ) : showMahesh ? (
+          <div className="w-full max-w-7xl z-30 relative pb-16 mt-4">
+            <button onClick={() => setShowMahesh(false)} className="mb-6 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-cyan-400 text-sm font-medium transition-all flex items-center gap-2 cursor-pointer backdrop-blur-md">&larr; Back to Network Map</button>
+            <MaheshProfileEmbedded onClose={() => setShowMahesh(false)} />
+          </div>
         ) : (
           <div className="relative w-full max-w-4xl h-[900px] mt-4 mx-auto font-mono">
             
@@ -180,7 +187,7 @@ export default function FacultyPage() {
               return (
                 <div 
                   key={index}
-                  onClick={() => { if(faculty.name && faculty.name.includes("Chetan")) setShowChethan(true); }}
+                  onClick={() => { if(faculty.name && faculty.name.includes("Chetan")) setShowChethan(true); else if(faculty.name && faculty.name.includes("Mahesh")) setShowMahesh(true); }}
                   className="absolute z-10 group cursor-pointer"
                   style={{
                     left: pos.x + '%',
@@ -206,7 +213,7 @@ export default function FacultyPage() {
                     </div>
 
                     {/* Interactive Badge */}
-                    {faculty.name && faculty.name.includes("Chetan") && (
+                    {faculty.name && (faculty.name.includes("Chetan") || faculty.name.includes("Mahesh")) && (
                       <div className="absolute top-16 bg-cyan-500 text-black text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(6,182,212,0.8)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap z-20 pointer-events-none">
                         Watch Profile
                       </div>
