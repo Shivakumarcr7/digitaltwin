@@ -1,11 +1,13 @@
-﻿"use client";
-
+"use client";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ChethanProfile from "@/components/ChethanProfile";
+﻿
 import Link from "next/link";
 import { facultyData } from "@/data/faculty";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function DigitalTwinPage() {
+  const [showChethan, setShowChethan] = useState(false);
   const [activeFloor, setActiveFloor] = useState<"ground" | "first">("ground");
   const [currentVideo, setCurrentVideo] = useState<string>("/videos/gemini_generated_video_2e505ee3.mp4");
   const [selectedRoomName, setSelectedRoomName] = useState<string>("Main Department Exterior");
