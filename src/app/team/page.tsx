@@ -7,8 +7,8 @@ import Link from "next/link";
 export default function TeamPage() {
   const team = [
     { name: "Shivkumar", role: "President", icon: Crown, delay: 0.1 },
-    { name: "Pawan Bhargav", role: "Vice President", icon: Star, delay: 0.2 },
-    { name: "Nandish", role: "Secretary", icon: User, delay: 0.3 },
+    { name: "Nandish", role: "Secretary", icon: User, delay: 0.2 },
+    { name: "Pavan Bhargav", role: "Vice President", icon: Star, delay: 0.3 },
   ];
 
   return (
@@ -21,9 +21,9 @@ export default function TeamPage() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        className="absolute inset-0 w-full h-full object-cover opacity-40 z-0"
       >
-        <source src="/videos/your-team-background-video.mp4" type="video/mp4" />
+        <source src="/videos/Anime_leaders_walking_forward_20261006180306.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-0 pointer-events-none"></div>
