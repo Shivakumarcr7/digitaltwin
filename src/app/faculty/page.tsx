@@ -72,7 +72,7 @@ export default function FacultyPage() {
       setShowChethan(true);
       return;
     }
-    if (faculty && faculty.name && faculty.name.includes("Ashwini")) {
+    if (nextFaculty && nextFaculty.name && nextFaculty.name.includes("Ashwini")) {
       setSelectedFaculty(null);
       setShowAshwini(true);
       return;
@@ -102,7 +102,7 @@ export default function FacultyPage() {
       setShowChethan(true);
       return;
     }
-    if (faculty && faculty.name && faculty.name.includes("Ashwini")) {
+    if (prevFaculty && prevFaculty.name && prevFaculty.name.includes("Ashwini")) {
       setSelectedFaculty(null);
       setShowAshwini(true);
       return;
