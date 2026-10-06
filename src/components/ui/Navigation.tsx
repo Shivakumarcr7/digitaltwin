@@ -39,10 +39,10 @@ export const Navigation = () => {
             </Link>
           ))}
           <Link 
-            href="/digital-twin"
+            href="/team"
             className="ml-4 px-6 py-2 border border-cyan-500/40 hover:bg-cyan-900/30 text-xs tracking-widest text-cyan-50 transition-all"
           >
-            EXPLORE DIGITAL TWIN
+            EXPLORE TEAM
           </Link>
         </nav>
       </div>

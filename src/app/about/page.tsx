@@ -140,7 +140,7 @@ export default function AboutPage() {
                 <h4 className="text-sm font-medium text-white mt-0.5">AI & ML Digital Twin Ecosystem</h4>
               </div>
               <a 
-                href="/digital-twin" 
+                href="/team" 
                 className="p-3 bg-cyan-600 hover:bg-cyan-500 text-black rounded-lg transition-all shadow-lg flex items-center justify-center"
               >
                 <ArrowRight size={16} />

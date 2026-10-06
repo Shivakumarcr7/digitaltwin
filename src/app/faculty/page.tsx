@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import ChethanProfileEmbedded from "@/components/ChethanProfileEmbedded";
 import MaheshProfileEmbedded from "@/components/MaheshProfileEmbedded";
+import AshwiniProfileEmbedded from "@/components/AshwiniProfileEmbedded";
 import { facultyData, FacultyProfile } from "@/data/faculty";
 import { User, ArrowRight, ArrowLeft, X, Building2 } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
@@ -15,6 +16,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function FacultyPage() {
   const [showChethan, setShowChethan] = useState(false);
+  const [showAshwini, setShowAshwini] = useState(false);
   const [showMahesh, setShowMahesh] = useState(false);
   const [selectedFaculty, setSelectedFaculty] =
     useState<FacultyProfile | null>(null);
@@ -42,6 +44,11 @@ export default function FacultyPage() {
       setShowChethan(true);
       return;
     }
+    if (faculty && faculty.name && faculty.name.includes("Ashwini")) {
+      setSelectedFaculty(null);
+      setShowAshwini(true);
+      return;
+    }
 
     setShowChethan(false);
     setSelectedFaculty(faculty);
@@ -63,6 +70,11 @@ export default function FacultyPage() {
       nextFaculty.name.toLowerCase().includes("chethan kumar")
     ) {
       setShowChethan(true);
+      return;
+    }
+    if (faculty && faculty.name && faculty.name.includes("Ashwini")) {
+      setSelectedFaculty(null);
+      setShowAshwini(true);
       return;
     }
 
@@ -88,6 +100,11 @@ export default function FacultyPage() {
       prevFaculty.name.toLowerCase().includes("chethan kumar")
     ) {
       setShowChethan(true);
+      return;
+    }
+    if (faculty && faculty.name && faculty.name.includes("Ashwini")) {
+      setSelectedFaculty(null);
+      setShowAshwini(true);
       return;
     }
 
@@ -127,6 +144,11 @@ export default function FacultyPage() {
           <div className="w-full max-w-7xl z-30 relative pb-16 mt-4">
             <button onClick={() => setShowMahesh(false)} className="mb-6 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-cyan-400 text-sm font-medium transition-all flex items-center gap-2 cursor-pointer backdrop-blur-md">&larr; Back to Network Map</button>
             <MaheshProfileEmbedded onClose={() => setShowMahesh(false)} />
+          </div>
+        ) : showAshwini ? (
+          <div className="w-full max-w-7xl z-30 relative pb-16 mt-4">
+            <button onClick={() => setShowAshwini(false)} className="mb-6 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-cyan-400 text-sm font-medium transition-all flex items-center gap-2 cursor-pointer backdrop-blur-md">&larr; Back to Network Map</button>
+            <AshwiniProfileEmbedded onClose={() => setShowAshwini(false)} />
           </div>
         ) : (
           <div className="relative w-full max-w-4xl h-[900px] mt-4 mx-auto font-mono">
@@ -187,8 +209,12 @@ export default function FacultyPage() {
               return (
                 <div 
                   key={index}
-                  onClick={() => { if(faculty.name && faculty.name.includes("Chetan")) setShowChethan(true); else if(faculty.name && faculty.name.includes("Mahesh")) setShowMahesh(true); }}
-                  className="absolute z-10 group cursor-pointer"
+                  onClick={() => {
+    if(faculty.name && faculty.name.includes("Chetan")) setShowChethan(true);
+    else if(faculty.name && faculty.name.includes("Mahesh")) setShowMahesh(true);
+    else if(faculty.name && faculty.name.includes("Ashwini")) setShowAshwini(true);
+  }}
+  className="absolute z-10 group cursor-pointer"
                   style={{
                     left: pos.x + '%',
                     top: pos.y + '%',

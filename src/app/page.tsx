@@ -33,15 +33,15 @@ export default function HomePage() {
         </p>
         
         <p className="text-gray-400 tracking-wider mb-10 md:mb-12 max-w-xl md:max-w-2xl text-xs md:text-sm leading-relaxed drop-shadow-md px-2">
-          Explore. Experiment. Create. Step into the future of education with our interactive digital twin, or discover the projects and research shaping tomorrow.
+          Explore. Experiment. Create. Step into the future of education in our AI & ML ecosystem, and meet the core team driving our vision forward.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto px-4 sm:px-0">
           <Link 
-            href="/digital-twin"
+            href="/team"
             className="px-6 md:px-8 py-3.5 md:py-4 border border-cyan-500 bg-black/40 backdrop-blur-sm hover:bg-cyan-900/40 text-cyan-50 tracking-widest text-xs md:text-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.15)] group text-center"
           >
-            <span className="group-hover:text-white transition-colors">EXPLORE DIGITAL TWIN</span>
+            <span className="group-hover:text-white transition-colors">EXPLORE TEAM</span>
           </Link>
           <Link 
             href="/faculty"
