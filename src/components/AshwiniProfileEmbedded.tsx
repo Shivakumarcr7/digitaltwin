@@ -21,19 +21,20 @@ export default function AshwiniProfileEmbedded({ onClose }: AshwiniProfileProps)
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="relative w-full h-[calc(100vh-12rem)] flex items-stretch bg-black overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+      className="relative w-full min-h-[85vh] md:min-h-0 md:h-[calc(100vh-12rem)] flex items-stretch bg-black overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
     >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover object-top opacity-80"
-      >
+      
+      {/* DESKTOP BACKGROUND */}
+      <video autoPlay loop muted playsInline className="hidden md:block absolute inset-0 w-full h-full object-cover object-top opacity-80">
         <source src="/videos/Woman_walking_and_posing_20261006152715.mp4" type="video/mp4" />
       </video>
 
-      <div className="relative z-10 w-full md:w-[60%] lg:w-[45%] flex flex-col justify-start bg-gradient-to-r from-black via-black/95 to-transparent p-8 md:p-12 pt-20 md:pt-24 border-r border-white/5 backdrop-blur-[2px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      {/* MOBILE BACKGROUND */}
+      <video autoPlay loop muted playsInline className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-80">
+        <source src="/videos/Woman_walking_and_posing_20261006152715.mp4" type="video/mp4" />
+      </video>
+
+      <div className="relative z-10 w-full md:w-[60%] lg:w-[45%] flex flex-col justify-start bg-gradient-to-r from-black via-black/95 to-transparent p-8 md:p-12 pt-12 md:pt-24 border-r border-white/5 backdrop-blur-[2px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         
         <button
           onClick={onClose}

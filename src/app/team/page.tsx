@@ -16,13 +16,15 @@ export default function TeamPage() {
       
       {/* BACKGROUND VIDEO PLACEHOLDER */}
       {/* Swap the src here once you have your team background video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-40 z-0"
-      >
+      
+      {/* DESKTOP BACKGROUND (16:9 Landscape) */}
+      <video autoPlay loop muted playsInline className="hidden md:block absolute inset-0 w-full h-full object-cover opacity-40 z-0">
+        <source src="/videos/Anime_leaders_walking_forward_20261006180306.mp4" type="video/mp4" />
+      </video>
+
+      {/* MOBILE BACKGROUND (9:16 Portrait) */}
+      {/* Currently uses the same video, but centered. Swap filename here when you have a cropped portrait video */}
+      <video autoPlay loop muted playsInline className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-40 z-0">
         <source src="/videos/Anime_leaders_walking_forward_20261006180306.mp4" type="video/mp4" />
       </video>
 
@@ -34,13 +36,13 @@ export default function TeamPage() {
       </Link>
 
       {/* CENTRAL CONTENT */}
-      <div className="relative z-10 w-full max-w-6xl px-6 flex flex-col items-center mt-8">
+      <div className="relative z-10 w-full max-w-6xl px-6 flex flex-col items-center mt-16 md:mt-8">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
+          className="text-center mb-10 md:mb-20"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-4 tracking-tight">
             TACHYON <span className="text-cyan-500">CORE</span>
           </h1>
           <p className="text-cyan-200 uppercase tracking-[0.3em] text-sm font-semibold">
@@ -49,14 +51,14 @@ export default function TeamPage() {
         </motion.div>
 
         {/* TEAM GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-5xl">
           {team.map((member) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: member.delay, duration: 0.5 }}
-              className="bg-black/40 border border-white/10 backdrop-blur-md p-10 rounded-2xl flex flex-col items-center text-center hover:bg-white/5 hover:border-cyan-500/50 transition-all duration-300 group shadow-2xl"
+              className="bg-black/40 border border-white/10 backdrop-blur-md p-6 md:p-10 rounded-2xl flex flex-col items-center text-center hover:bg-white/5 hover:border-cyan-500/50 transition-all duration-300 group shadow-2xl"
             >
               <div className="w-20 h-20 rounded-full bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
                 <member.icon size={32} className="text-cyan-400" />
